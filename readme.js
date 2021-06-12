@@ -69,7 +69,7 @@ const promptUser = () => {
   type: 'checkbox',
   name: 'license',
   message: 'What did license(s) do you want to add? (Check all that apply)',
-  choices: ['MIT', 'Apache', 'Apache 2', 'GPL', 'BSD', 'compliant']
+  choices: ['MIT', 'Apache', 'Apache 2', 'GPL', 'BSD']
 },
 
 {
@@ -159,8 +159,21 @@ const promptUser = () => {
   var licenseMD = ""
   if (answers.license = 'MIT') {
     licenseMD = "https://img.shields.io/badge/license-MIT-green"
-    
   }
+  else if (answers.license = 'Apache') {
+    licenseMD = "https://img.shields.io/badge/license-Apache-blue"
+  }
+  else if (answers.license = 'Apache 2') {
+    licenseMD = "https://img.shields.io/badge/license-Apache%202-blue"
+  }
+  else if (answers.license = 'GPL') {
+    licenseMD = "https://img.shields.io/badge/license-GPL-blue"
+  }
+  else {
+    licenseMD = "https://img.shields.io/badge/license-BSD-green"
+  }
+  
+  
   var data = `# ${answers.title}
 
 ## Description 
